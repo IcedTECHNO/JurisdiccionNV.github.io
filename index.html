@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Completo de Computación - Jurisdicción Sanitaria N°V - Cd. Valles</title>
+    <meta name="description" content="Manual completo de computación para el personal de la Jurisdicción Sanitaria N°V en Ciudad Valles.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .card .img-parte { width:100%; max-width:180px; height:auto; display:block; margin:0 auto 12px; }
+        @media(max-width:768px){ .card .img-parte { max-width:140px; } }
+        .sello-oficial { text-align:center; margin:25px 0; padding:20px; border:2px dashed #667eea; border-radius:16px; background:#f8f6ff; }
+        .sello-oficial p { margin:0; font-weight:700; color:#667eea; }
+        .section ul { margin:10px 0 10px 20px; }
+        .section ul li { margin-bottom:6px; }
+        ol { margin:10px 0 10px 25px; }
+        ol li { margin-bottom:6px; }
+        .highlight { background:#ede9fe; padding:2px 6px; border-radius:4px; }
+        .ventana-ejemplo { background:#f8f6ff; border:2px solid #667eea; border-radius:12px; padding:16px; margin:16px 0; position:relative; }
+        .ventana-ejemplo-bar { background:linear-gradient(90deg,#667eea,#764ba2); padding:8px 12px; border-radius:8px 8px 0 0; color:#fff; font-size:0.85em; display:flex; justify-content:space-between; margin:-16px -16px 12px; }
+        .ventana-ejemplo-dots { display:flex; gap:6px; }
+        .ventana-ejemplo-dot { width:10px; height:10px; border-radius:50%; }
+        .ventana-ejemplo-dot:nth-child(1){background:#f43f5e}
+        .ventana-ejemplo-dot:nth-child(2){background:#eab308}
+        .ventana-ejemplo-dot:nth-child(3){background:#22c55e}
+        .split-ejemplo { display:flex; gap:8px; margin:16px 0; }
+        .split-ejemplo > div { flex:1; background:#f8f6ff; border:2px solid #667eea; border-radius:10px; padding:12px; text-align:center; font-size:0.85em; color:#4a4870; }
+        /* Botones de módulo grandes */
+        .btn-modulo { display:inline-block; padding:16px 40px; border-radius:14px; font-size:1.15em; font-weight:800; text-decoration:none; transition:all 0.3s; margin:8px; border:none; cursor:pointer; letter-spacing:0.5px; }
+        .btn-modulo:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,0.15); }
+        .btn-modulo:active { transform:translateY(0); }
+        .btn-hardware { background:#dc2626; color:#fff; box-shadow:0 6px 20px rgba(220,38,38,0.3); }
+        .btn-hardware:hover { background:#b91c1c; box-shadow:0 8px 30px rgba(220,38,38,0.4); }
+        .btn-software { background:#2563eb; color:#fff; box-shadow:0 6px 20px rgba(37,99,235,0.3); }
+        .btn-software:hover { background:#1d4ed8; box-shadow:0 8px 30px rgba(37,99,235,0.4); }
+        .btn-accion { display:inline-flex; align-items:center; gap:10px; padding:14px 28px; border-radius:12px; font-size:1.05em; font-weight:700; text-decoration:none; transition:all 0.3s; margin:6px; border:none; cursor:pointer; }
+        .btn-accion:hover { transform:translateY(-2px); }
+        .btn-verde { background:#16a34a; color:#fff; box-shadow:0 4px 15px rgba(22,163,74,0.25); }
+        .btn-verde:hover { background:#15803d; box-shadow:0 6px 20px rgba(22,163,74,0.35); }
+        .btn-blanco { background:#fff; color:#1e1b4b; border:2px solid #e2e8f0; box-shadow:0 4px 15px rgba(0,0,0,0.05); }
+        .btn-blanco:hover { border-color:#667eea; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
+        .btn-chico { padding:10px 20px; font-size:0.9em; border-radius:10px; }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- HEADER -->
+    <header class="header" style="background:linear-gradient(135deg,#1e3a5f 0%,#2d5a87 30%,#4a90d9 60%,#667eea 100%);">
+        <div class="header-circles"><span></span><span></span><span></span><span></span></div>
+        <h1>📖 Manual Completo de Computación</h1>
+        <p>Para el personal de la <strong>Jurisdicción Sanitaria N°V</strong> — Ciudad Valles, S.L.P. Aprende computación organizada en dos grandes módulos: Hardware y Software.</p>
+        <span class="header-badge">🏥 Jurisdicción Sanitaria N°V · 2 Módulos · Guía completa</span>
+    </header>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <span class="nav-brand">🏥 J.S. N°V</span>
+            <button class="nav-toggle" id="navToggle">☰</button>
+            <ul id="navMenu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li style="font-weight:700;color:#dc2626;padding:6px 12px;font-size:0.8em;">▸ HARDWARE</li>
+                <li><a href="#que-es">¿Qué es?</a></li>
+                <li><a href="#tipos">Tipos</a></li>
+                <li><a href="#externas">Partes Ext.</a></li>
+                <li><a href="#internas">Partes Int.</a></li>
+                <li><a href="#perifericos">Periféricos</a></li>
+                <li style="font-weight:700;color:#2563eb;padding:6px 12px;font-size:0.8em;">▸ SOFTWARE</li>
+                <li><a href="#so">Sist. Op.</a></li>
+                <li><a href="#ventanas">Ventanas</a></li>
+                <li><a href="#encender">Encender</a></li>
+                <li><a href="#mouse">Mouse</a></li>
+                <li><a href="#teclado">Teclado</a></li>
+                <li><a href="#atajos">Atajos</a></li>
+                <li><a href="#escritorio">Escritorio</a></li>
+                <li><a href="#archivos">Archivos</a></li>
+                <li><a href="#carpetas">Carpetas</a></li>
+                <li><a href="#programas">Programas</a></li>
+                <li><a href="#office">Office</a></li>
+                <li><a href="#internet">Internet</a></li>
+                <li><a href="#correo">Correo</a></li>
+                <li><a href="#navegacion">Navegación</a></li>
+                <li><a href="#seguridad">Seguridad</a></li>
+                <li><a href="#mantenimiento">Mantenimiento</a></li>
+                <li><a href="#problemas">Problemas</a></li>
+                <li><a href="#glosario">Glosario</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ========== INTRO ========== -->
+        <section id="inicio" class="section">
+            <div class="sello-oficial">
+                <p>⚕️ Jurisdicción Sanitaria N°V · Ciudad Valles, San Luis Potosí ⚕️</p>
+                <p style="font-weight:400;font-size:0.9em;color:#4a4870;">Manual de capacitación para el personal administrativo y operativo</p>
+            </div>
+            <h2>Bienvenido al Manual de Computación</h2>
+            <p>Este manual está organizado en <strong>dos grandes módulos</strong> para que sea más fácil de entender. Elige el módulo que quieras explorar:</p>
+            
+            <!-- BOTONES GRANDES DE MÓDULOS -->
+            <div style="text-align:center;margin:30px 0;">
+                <a href="#modulo-hardware" class="btn-modulo btn-hardware">🔧 Módulo de Hardware</a>
+                <a href="#modulo-software" class="btn-modulo btn-software">💿 Módulo de Software</a>
+            </div>
+            <p style="text-align:center;color:#9498a5;font-size:0.9em;">O sigue el orden de las secciones una por una. ¡Tú decides!</p>
+
+            <div class="cards-grid" style="margin-top:30px;">
+                <div class="card" style="border-left:4px solid #dc2626;">
+                    <span class="icono">🔧</span>
+                    <h4>Módulo 1: Hardware</h4>
+                    <p>Todo sobre las partes físicas de la computadora: qué es, tipos, partes externas, internas y periféricos.</p>
+                    <a href="#modulo-hardware" class="btn-accion btn-hardware btn-chico" style="margin:10px 0 0;">Ir al módulo →</a>
+                </div>
+                <div class="card" style="border-left:4px solid #2563eb;">
+                    <span class="icono">💿</span>
+                    <h4>Módulo 2: Software</h4>
+                    <p>Todo sobre los programas y sistemas: Windows, archivos, Office, internet, seguridad y más.</p>
+                    <a href="#modulo-software" class="btn-accion btn-software btn-chico" style="margin:10px 0 0;">Ir al módulo →</a>
+                </div>
+            </div>
+            <p>Este manual ha sido creado especialmente para ti, trabajador de la <strong>Jurisdicción Sanitaria N°V</strong> con sede en <strong>Ciudad Valles, San Luis Potosí</strong>. Al final encontrarás un glosario con todas las palabras técnicas explicadas de forma sencilla. ¡Comencemos! 🚀</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <!--           MÓDULO 1: HARDWARE                                      -->
+        <!-- ================================================================ -->
+        <div id="modulo-hardware" class="modulo-divisor" style="border-color:#dc2626;background:linear-gradient(135deg,#fee2e2,#fef2f2);">
+            <h2>🔧 Módulo 1: Hardware</h2>
+            <p>Todo sobre las partes físicas de la computadora</p>
+            <span class="modulo-badge modulo-badge-hardware" style="margin-top:10px;display:inline-block;">MÓDULO HARDWARE</span>
+            <div style="margin-top:18px;">
+                <a href="#que-es" class="btn-accion btn-hardware btn-chico">📖 Empezar módulo →</a>
+                <a href="#inicio" class="btn-accion btn-blanco btn-chico">⬆ Volver al inicio</a>
+            </div>
+        </div>
+
+        <!-- 1. QUÉ ES UNA COMPUTADORA -->
+        <section id="que-es" class="section">
+            <span class="modulo-badge modulo-badge-hardware">HARDWARE</span>
+            <h2>🖥️ ¿Qué es una computadora?</h2>
+            <div style="text-align:right;margin-bottom:10px;">
+                <a href="#modulo-hardware" class="btn-accion btn-hardware btn-chico" style="font-size:0.8em;">⬆ Subir</a>
+                <a href="#tipos" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a>
+            </div>
+            <p>Una <strong>computadora</strong> (también llamada ordenador o PC) es una máquina electrónica que recibe datos, los procesa y los convierte en información útil. Piensa en ella como un asistente que puede hacer cálculos millones de veces más rápido que una persona, almacenar enormes cantidades de información y conectarte con el mundo.</p>
+            <p>En la Jurisdicción Sanitaria N°V, la computadora nos sirve para:</p>
+            <ul>
+                <li><strong>Redactar documentos:</strong> Oficios, memorándums, circulares, informes.</li>
+                <li><strong>Capturar datos:</strong> Estadísticas de salud, censos, reportes, SIS.</li>
+                <li><strong>Comunicarnos:</strong> Correo electrónico, reuniones virtuales.</li>
+                <li><strong>Almacenar información:</strong> Expedientes, bases de datos.</li>
+                <li><strong>Imprimir y escanear:</strong> Documentos oficiales, formatos.</li>
+            </ul>
+            <h3>Las dos partes fundamentales de toda computadora</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 240 160" fill="none">
+                        <rect x="15" y="25" width="210" height="110" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="40" y="45" width="160" height="70" rx="4" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="100" y="125" width="40" height="20" rx="4" stroke="#667eea" stroke-width="2" fill="#f0e6ff"/>
+                        <rect x="60" y="135" width="20" height="15" rx="3" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                        <rect x="160" y="135" width="20" height="15" rx="3" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                        <rect x="190" y="40" width="40" height="85" rx="6" stroke="#764ba2" stroke-width="3" fill="#f0e6ff"/>
+                        <rect x="198" y="50" width="24" height="65" rx="3" stroke="#a78bfa" stroke-width="1.5" fill="none"/>
+                        <circle cx="210" cy="40" r="5" fill="#667eea"/>
+                    </svg>
+                    <h4>🔧 Hardware (el cuerpo)</h4>
+                    <p>Partes <strong>físicas</strong> que puedes tocar: monitor, teclado, mouse, torre, cables, impresora.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 240 160" fill="none">
+                        <rect x="30" y="20" width="180" height="120" rx="10" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="50" y="38" width="140" height="85" rx="6" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <line x1="70" y1="55" x2="170" y2="55" stroke="#a78bfa" stroke-width="2"/>
+                        <line x1="70" y1="70" x2="150" y2="70" stroke="#a78bfa" stroke-width="2"/>
+                        <line x1="70" y1="85" x2="160" y2="85" stroke="#a78bfa" stroke-width="2"/>
+                        <line x1="70" y1="100" x2="140" y2="100" stroke="#a78bfa" stroke-width="2"/>
+                        <polygon points="120,60 135,60 135,75 120,75" fill="#667eea" opacity="0.3"/>
+                    </svg>
+                    <h4>💿 Software (la mente)</h4>
+                    <p>Programas que le dicen al hardware qué hacer: Windows, Word, Excel, Chrome, antivirus.</p>
+                </div>
+            </div>
+            <div class="ejercicio">
+                <h4>Ejercicio Práctico</h4>
+                <p><strong>Identifica las partes de tu computadora:</strong></p>
+                <ol>
+                    <li>Señala con tu mano el monitor donde estás leyendo esto.</li>
+                    <li>Toca el teclado y el mouse que tienes enfrente.</li>
+                    <li>Di en voz alta: "Esto es HARDWARE porque lo puedo tocar".</li>
+                    <li>Ahora di: "Windows y Word son SOFTWARE porque son programas".</li>
+                </ol>
+                <span class="ejercicio-accion">✓ Lo hice</span>
+            </div>
+            <div style="text-align:center;margin-top:20px;">
+                <a href="#modulo-hardware" class="btn-accion btn-hardware btn-chico">⬆ Subir al módulo</a>
+                <a href="#tipos" class="btn-accion btn-verde btn-chico">Siguiente: Tipos →</a>
+            </div>
+        </section>
+
+        <!-- 2. TIPOS -->
+        <section id="tipos" class="section">
+            <span class="modulo-badge modulo-badge-hardware">HARDWARE</span>
+            <h2>📱 Tipos de computadoras</h2>
+            <div style="text-align:right;margin-bottom:10px;">
+                <a href="#que-es" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a>
+                <a href="#externas" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a>
+            </div>
+            <p>En la Jurisdicción usamos diferentes tipos. Conocer sus diferencias te ayudará a elegir la adecuada.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="10" y="10" width="140" height="90" rx="6" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="30" y="30" width="100" height="50" rx="3" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="10" y="100" width="30" height="20" rx="3" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="120" y="100" width="30" height="20" rx="3" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="150" y="20" width="40" height="80" rx="5" stroke="#764ba2" stroke-width="3" fill="#f0e6ff"/>
+                    </svg>
+                    <h4>🖥️ De Escritorio</h4>
+                    <p>Torre + monitor + teclado + mouse. La más potente y fácil de reparar. Ideal para oficinas.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="15" y="15" width="170" height="110" rx="10" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="35" y="30" width="130" height="65" rx="4" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="30" y="105" width="90" height="14" rx="3" stroke="#764ba2" stroke-width="3" fill="#f0e6ff"/>
+                        <rect x="135" y="105" width="35" height="14" rx="3" stroke="#764ba2" stroke-width="3" fill="#f0e6ff"/>
+                    </svg>
+                    <h4>💻 Laptop</h4>
+                    <p>Todo en uno. Se lleva a reuniones, brigadas y trabajo de campo. Tiene batería para usar sin corriente.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="25" y="25" width="150" height="90" rx="12" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <circle cx="100" cy="70" r="25" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                    </svg>
+                    <h4>📱 Tablet</h4>
+                    <p>Pantalla táctil. Ideal para censos, encuestas de salud y trabajo de campo.</p>
+                </div>
+            </div>
+            <div class="ejercicio">
+                <h4>Ejercicio Práctico</h4>
+                <p><strong>¿Qué tipo de computadora tienes?</strong> Observa tu equipo y responde:</p>
+                <ol>
+                    <li>¿Tiene una torre separada del monitor? → Es de <strong>escritorio</strong>.</li>
+                    <li>¿Es todo en uno, delgada y con batería? → Es una <strong>laptop</strong>.</li>
+                    <li>¿Es solo una pantalla táctil? → Es una <strong>tablet</strong>.</li>
+                </ol>
+                <span class="ejercicio-accion">✓ Identificado</span>
+            </div>
+            <div style="text-align:center;margin-top:20px;">
+                <a href="#que-es" class="btn-accion btn-blanco btn-chico">← Anterior</a>
+                <a href="#externas" class="btn-accion btn-verde btn-chico">Siguiente: Partes externas →</a>
+            </div>
+        </section>
+
+        <!-- 3. PARTES EXTERNAS -->
+        <section id="externas" class="section">
+            <span class="modulo-badge modulo-badge-hardware">HARDWARE</span>
+            <h2>🔧 Partes externas</h2>
+            <div style="text-align:right;margin-bottom:10px;">
+                <a href="#tipos" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a>
+                <a href="#internas" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a>
+            </div>
+            <p>Estas son las piezas que ves todos los días en tu escritorio.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="10" y="10" width="180" height="105" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="30" y="25" width="140" height="70" rx="4" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="85" y="100" width="30" height="18" rx="3" stroke="#667eea" stroke-width="2" fill="#f0e6ff"/>
+                        <rect x="70" y="118" width="60" height="12" rx="4" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                    </svg>
+                    <h4>🖥️ Monitor</h4>
+                    <p>La pantalla donde ves oficios, expedientes y sistemas de salud.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <ellipse cx="100" cy="80" rx="60" ry="38" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <ellipse cx="100" cy="80" rx="32" ry="22" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <line x1="100" y1="42" x2="100" y2="15" stroke="#667eea" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="55" y1="68" x2="30" y2="55" stroke="#667eea" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="145" y1="68" x2="170" y2="55" stroke="#667eea" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="60" y1="95" x2="42" y2="108" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="140" y1="95" x2="158" y2="108" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="100" cy="80" r="5" fill="#a78bfa"/>
+                    </svg>
+                    <h4>🖱️ Mouse</h4>
+                    <p>Controla el cursor. Botón izquierdo (seleccionar), derecho (menú), rueda (scroll).</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="10" y="30" width="180" height="55" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <line x1="22" y1="45" x2="55" y2="45" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="22" y1="57" x2="40" y2="57" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="22" y1="69" x2="48" y2="69" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="68" y1="45" x2="95" y2="45" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="68" y1="57" x2="85" y2="57" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="68" y1="69" x2="92" y2="69" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="108" y1="45" x2="130" y2="45" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="108" y1="57" x2="125" y2="57" stroke="#a78bfa" stroke-width="2.5"/>
+                        <rect x="155" y="22" width="20" height="42" rx="4" stroke="#667eea" stroke-width="2" fill="#f0e6ff"/>
+                        <rect x="185" y="30" width="10" height="25" rx="2" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                        <rect x="10" y="85" width="180" height="8" rx="3" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                    </svg>
+                    <h4>⌨️ Teclado</h4>
+                    <p>Para escribir. Tiene letras, números, teclas de función (F1-F12) y especiales (Ctrl, Alt).</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="25" y="25" width="90" height="60" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="115" y="35" width="55" height="42" rx="5" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <circle cx="165" cy="78" r="16" stroke="#764ba2" stroke-width="2.5" fill="none"/>
+                        <circle cx="165" cy="78" r="6" stroke="#764ba2" stroke-width="1.5" fill="none"/>
+                        <rect x="60" y="20" width="20" height="10" rx="3" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                    </svg>
+                    <h4>🔊 Bocinas</h4>
+                    <p>Para escuchar videollamadas, capacitaciones y sonidos del sistema.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="20" y="45" width="70" height="55" rx="6" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="55" y="30" width="60" height="85" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <line x1="85" y1="45" x2="125" y2="45" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="85" y1="55" x2="125" y2="55" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="85" y1="65" x2="125" y2="65" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="85" y1="75" x2="125" y2="75" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="85" y1="85" x2="125" y2="85" stroke="#a78bfa" stroke-width="2.5"/>
+                        <line x1="85" y1="95" x2="125" y2="95" stroke="#a78bfa" stroke-width="2.5"/>
+                        <rect x="130" y="55" width="35" height="50" rx="6" stroke="#764ba2" stroke-width="2" fill="#f0e6ff"/>
+                        <line x1="140" y1="65" x2="155" y2="65" stroke="#764ba2" stroke-width="2"/>
+                        <line x1="140" y1="75" x2="155" y2="75" stroke="#764ba2" stroke-width="2"/>
+                        <line x1="140" y1="85" x2="155" y2="85" stroke="#764ba2" stroke-width="2"/>
+                    </svg>
+                    <h4>🎧 Audífonos</h4>
+                    <p>Para reuniones virtuales sin molestar a compañeros. Algunos tienen micrófono.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="15" y="30" width="170" height="80" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="35" y="45" width="130" height="50" rx="4" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="55" y="55" width="90" height="30" rx="3" stroke="#764ba2" stroke-width="1.5" fill="none"/>
+                        <rect x="95" y="100" width="10" height="25" rx="2" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                        <rect x="95" y="125" width="60" height="8" rx="3" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                    </svg>
+                    <h4>🖨️ Impresora</h4>
+                    <p>Imprime oficios, reportes y formatos. Algunas también escanean y copian.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="25" y="25" width="150" height="90" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="45" y="42" width="110" height="55" rx="5" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="65" y="55" width="70" height="28" rx="4" stroke="#764ba2" stroke-width="1.5" fill="none"/>
+                        <rect x="90" y="25" width="20" height="10" rx="2" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                    </svg>
+                    <h4>🔌 Puertos USB</h4>
+                    <p>Para conectar mouse, teclado, memorias USB, discos externos, impresoras y más.</p>
+                </div>
+            </div>
+            <div class="ejercicio">
+                <h4>Ejercicio Práctico</h4>
+                <p><strong>Identifica 3 periféricos en tu escritorio:</strong></p>
+                <ol>
+                    <li>Mira a tu alrededor y encuentra el <strong>monitor</strong> (la pantalla).</li>
+                    <li>Busca el <strong>mouse</strong> (el aparato que mueves con la mano).</li>
+                    <li>Busca el <strong>teclado</strong> (donde escribes).</li>
+                    <li>¿Tienes bocinas, audífonos o una impresora cerca? Esos también son periféricos.</li>
+                </ol>
+                <span class="ejercicio-accion">✓ 3 identificados</span>
+            </div>
+            <div style="text-align:center;margin-top:20px;">
+                <a href="#tipos" class="btn-accion btn-blanco btn-chico">← Anterior</a>
+                <a href="#internas" class="btn-accion btn-verde btn-chico">Siguiente: Partes internas →</a>
+            </div>
+        </section>
+
+        <!-- 4. PARTES INTERNAS -->
+        <section id="internas" class="section">
+            <span class="modulo-badge modulo-badge-hardware">HARDWARE</span>
+            <h2>🔬 Partes internas</h2>
+            <div style="text-align:right;margin-bottom:10px;">
+                <a href="#externas" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a>
+                <a href="#perifericos" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a>
+            </div>
+            <p>Dentro de la torre o laptop están los componentes más importantes. Son como los órganos del cuerpo.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="35" y="15" width="130" height="80" rx="10" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="55" y="30" width="90" height="50" rx="6" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="65" y="38" width="70" height="34" rx="3" stroke="#764ba2" stroke-width="1.5" fill="none"/>
+                        <rect x="85" y="42" width="30" height="26" rx="2" fill="#667eea" opacity="0.15"/>
+                        <text x="100" y="60" text-anchor="middle" font-size="10" fill="#667eea" font-weight="700">CPU</text>
+                        <rect x="55" y="95" width="12" height="30" rx="2" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                        <rect x="133" y="95" width="12" height="30" rx="2" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                    </svg>
+                    <h4>🧠 Procesador (CPU)</h4>
+                    <p>El <strong>cerebro</strong>. Hace todos los cálculos. Entre más rápido, más ágil es tu PC.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="15" y="15" width="170" height="110" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="30" y="28" width="140" height="18" rx="4" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="30" y="52" width="140" height="18" rx="4" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="30" y="76" width="140" height="18" rx="4" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="30" y="100" width="140" height="18" rx="4" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <rect x="170" y="25" width="8" height="95" rx="2" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                    </svg>
+                    <h4>🧩 Memoria RAM</h4>
+                    <p>Memoria <strong>temporal</strong>. Guarda los programas abiertos. Más RAM = más programas sin que se trabe.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="30" y="20" width="140" height="100" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="45" y="35" width="110" height="70" rx="5" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <circle cx="100" cy="70" r="22" stroke="#764ba2" stroke-width="2" fill="none"/>
+                        <circle cx="100" cy="70" r="8" stroke="#764ba2" stroke-width="2" fill="none"/>
+                        <line x1="100" y1="48" x2="100" y2="62" stroke="#764ba2" stroke-width="2"/>
+                        <line x1="100" y1="78" x2="100" y2="92" stroke="#764ba2" stroke-width="2"/>
+                        <rect x="30" y="15" width="10" height="15" rx="2" stroke="#667eea" stroke-width="2" fill="#ede9fe"/>
+                    </svg>
+                    <h4>💾 Disco Duro</h4>
+                    <p>Guarda <strong>todo</strong> tus archivos de forma permanente: fotos, documentos, programas.</p>
+                </div>
+                <div class="card">
+                    <svg class="img-parte" viewBox="0 0 200 140" fill="none">
+                        <rect x="15" y="15" width="170" height="110" rx="8" stroke="#667eea" stroke-width="3" fill="#ede9fe"/>
+                        <rect x="30" y="28" width="140" height="85" rx="5" stroke="#a78bfa" stroke-width="2" fill="none"/>
+                        <line x1="30" y1="45" x2="170" y2="45" stroke="#a78bfa" stroke-width="1.5"/>
+                        <line x1="30" y1="65" x2="170" y2="65" stroke="#a78bfa" stroke-width="1.5"/>
+                        <line x1="30" y1="85" x2="170" y2="85" stroke="#a78bfa" stroke-width="1.5"/>
+                        <circle cx="60" cy="55" r="4" fill="#667eea"/>
+                        <circle cx="80" cy="55" r="4" fill="#667eea"/>
+                        <circle cx="60" cy="75" r="4" fill="#667eea"/>
+                        <circle cx="80" cy="75" r="4" fill="#667eea"/>
+                    </svg>
+                    <h4>📋 Tarjeta Madre</h4>
+                    <p>La <strong>placa principal</strong> que conecta todos los componentes entre sí.</p>
+                </div>
+            </div>
+            <div class="ejercicio">
+                <h4>Ejercicio Práctico</h4>
+                <p><strong>Completa las frases:</strong></p>
+                <ol>
+                    <li>El ______ es el cerebro de la computadora. (Respuesta: procesador)</li>
+                    <li>La memoria ______ guarda los programas abiertos temporalmente. (Respuesta: RAM)</li>
+                    <li>El ______ ______ guarda todos tus archivos para siempre. (Respuesta: disco duro)</li>
+                </ol>
+                <span class="ejercicio-accion">✓ Completado</span>
+            </div>
+            <div style="text-align:center;margin-top:20px;">
+                <a href="#externas" class="btn-accion btn-blanco btn-chico">← Anterior</a>
+                <a href="#perifericos" class="btn-accion btn-verde btn-chico">Siguiente: Periféricos →</a>
+            </div>
+        </section>
+
+        <!-- 5. PERIFÉRICOS -->
+        <section id="perifericos" class="section">
+            <span class="modulo-badge modulo-badge-hardware">HARDWARE</span>
+            <h2>🔌 Periféricos</h2>
+            <div style="text-align:right;margin-bottom:10px;">
+                <a href="#internas" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a>
+                <a href="#modulo-software" class="btn-accion btn-software btn-chico" style="font-size:0.8em;">Ir a Software →</a>
+            </div>
+            <p>Dispositivos que se conectan a la computadora para darle más capacidades.</p>
+            <h3>📥 De entrada (envían información)</h3>
+            <div class="cards-grid">
+                <div class="card"><span class="icono">🖱️</span><h4>Mouse</h4><p>Controla el cursor.</p></div>
+                <div class="card"><span class="icono">⌨️</span><h4>Teclado</h4><p>Escribe texto.</p></div>
+                <div class="card"><span class="icono">📸</span><h4>Cámara Web</h4><p>Captura video.</p></div>
+                <div class="card"><span class="icono">🎙️</span><h4>Micrófono</h4><p>Graba voz.</p></div>
+                <div class="card"><span class="icono">📄</span><h4>Escáner</h4><p>Digitaliza documentos.</p></div>
+            </div>
+            <h3>📤 De salida (muestran información)</h3>
+            <div class="cards-grid">
+                <div class="card"><span class="icono">🖥️</span><h4>Monitor</h4><p>Muestra imágenes.</p></div>
+                <div class="card"><span class="icono">🖨️</span><h4>Impresora</h4><p>Imprime en papel.</p></div>
+                <div class="card"><span class="icono">🔊</span><h4>Bocinas</h4><p>Reproducen sonido.</p></div>
+                <div class="card"><span class="icono">🎧</span><h4>Audífonos</h4><p>Sonido privado.</p></div>
+            </div>
+            <div class="ejercicio">
+                <h4>Ejercicio Práctico</h4>
+                <p><strong>Clasifica estos periféricos:</strong> ¿Son de entrada o de salida?</p>
+                <ol>
+                    <li>El mouse → ______ (entrada)</li>
+                    <li>La impresora → ______ (salida)</li>
+                    <li>El micrófono → ______ (entrada)</li>
+                    <li>El monitor → ______ (salida)</li>
+                </ol>
+                <span class="ejercicio-accion">✓ Clasificado</span>
+            </div>
+            <div style="text-align:center;margin-top:20px;">
+                <a href="#internas" class="btn-accion btn-blanco btn-chico">← Anterior</a>
+                <a href="#modulo-software" class="btn-accion btn-software btn-chico">💿 Ir al Módulo de Software →</a>
+            </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!--           MÓDULO 2: SOFTWARE                                      -->
+        <!-- ================================================================ -->
+        <div id="modulo-software" class="modulo-divisor" style="border-color:#2563eb;background:linear-gradient(135deg,#dbeafe,#eef2ff);">
+            <h2>💿 Módulo 2: Software</h2>
+            <p>Todo sobre los programas, Windows, archivos y seguridad</p>
+            <span class="modulo-badge modulo-badge-software" style="margin-top:10px;display:inline-block;">MÓDULO SOFTWARE</span>
+            <div style="margin-top:18px;">
+                <a href="#so" class="btn-accion btn-software btn-chico">📖 Empezar módulo →</a>
+                <a href="#inicio" class="btn-accion btn-blanco btn-chico">⬆ Volver al inicio</a>
+            </div>
+        </div>
+
+        <!-- 6. SISTEMA OPERATIVO -->
+        <section id="so" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🪟 El Sistema Operativo (Windows)</h2>
+            <div style="text-align:right;margin-bottom:10px;">
+                <a href="#modulo-software" class="btn-accion btn-software btn-chico" style="font-size:0.8em;">⬆ Subir</a>
+                <a href="#ventanas" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a>
+            </div>
+            <p>El <strong>sistema operativo</strong> es el programa más importante de la computadora. Gestiona el hardware y permite que los demás programas funcionen. Es como el capitán del barco que organiza todo. En la Jurisdicción usamos <strong>Microsoft Windows</strong>.</p>
+            <h3>Funciones principales:</h3>
+            <ul>
+                <li>Gestionar el hardware (procesador, memoria, disco).</li>
+                <li>Administrar archivos y carpetas.</li>
+                <li>Ejecutar programas (Word, Excel, Chrome).</li>
+                <li>Controlar la seguridad (contraseñas, firewall, Defender).</li>
+                <li>Manejar la red y la conexión a internet.</li>
+            </ul>
+            <div class="tips"><h4>💡 ¿Sabías que...?</h4><p>Presiona <strong>Windows + R</strong>, escribe <code>winver</code> y Enter para saber tu versión de Windows.</p></div>
+            <div style="text-align:center;margin-top:20px;">
+                <a href="#modulo-software" class="btn-accion btn-software btn-chico">⬆ Subir al módulo</a>
+                <a href="#ventanas" class="btn-accion btn-verde btn-chico">Siguiente: Ventanas →</a>
+            </div>
+        </section>
+
+        <!-- 7. VENTANAS DE APLICACIÓN -->
+        <section id="ventanas" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🪟 Ventanas de Aplicación</h2>
+            <div style="text-align:right;margin-bottom:10px;">
+                <a href="#so" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a>
+                <a href="#encender" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a>
+            </div>
+            <p>Cada programa que abres (Word, Excel, Chrome, una carpeta) se muestra dentro de un recuadro llamado <strong>ventana</strong>. Aprender a controlar las ventanas es fundamental para usar la computadora.</p>
+
+            <h3>Partes de una ventana</h3>
+            <div class="ventana-ejemplo">
+                <div class="ventana-ejemplo-bar">
+                    <span>📄 Documento - Word</span>
+                    <div class="ventana-ejemplo-dots">
+                        <span class="ventana-ejemplo-dot"></span>
+                        <span class="ventana-ejemplo-dot"></span>
+                        <span class="ventana-ejemplo-dot"></span>
+                    </div>
+                </div>
+                <p style="text-align:center;color:#4a4870;">Aquí va el contenido del programa</p>
+            </div>
+            <p>En la <strong>barra superior</strong> de cada ventana (llamada barra de título) hay tres botones en la esquina derecha:</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="icono">➖</span>
+                    <h4>Minimizar</h4>
+                    <p>El botón con un guión <strong>➖</strong>. Oculta la ventana y la manda a la barra de tareas. El programa sigue abierto, solo no se ve.</p>
+                </div>
+                <div class="card">
+                    <span class="icono">⬜</span>
+                    <h4>Maximizar / Restaurar</h4>
+                    <p>El botón del <strong>cuadrado</strong>. Maximizar agranda la ventana para que ocupe toda la pantalla. Restaurar la devuelve a su tamaño anterior.</p>
+                </div>
+                <div class="card">
+                    <span class="icono">✖</span>
+                    <h4>Cerrar</h4>
+                    <p>El botón de la <strong>X</strong> en rojo. Cierra el programa por completo. Si no has guardado, Windows te preguntará si quieres guardar.</p>
+                </div>
+            </div>
+
+            <h3>Cómo mover una ventana</h3>
+            <div class="steps">
+                <div class="step"><h4>Coloca el cursor sobre la barra superior</h4><p>La barra de título (donde está el nombre del programa).</p></div>
+                <div class="step"><h4>Mantén presionado el botón izquierdo del mouse</h4></div>
+                <div class="step"><h4>Arrastra la ventana a la posición que quieras</h4><p>Verás que la ventana se mueve con el mouse.</p></div>
+                <div class="step"><h4>Suelta el botón</h4><p>La ventana se queda en la nueva posición.</p></div>
+            </div>
+
+            <h3>Pantalla dividida con dos ventanas (Split Screen)</h3>
+            <p>Windows te permite dividir la pantalla para ver dos programas al mismo tiempo. Esto es muy útil cuando, por ejemplo, estás escribiendo un oficio en Word y consultando datos en Excel.</p>
+            <div class="steps">
+                <div class="step"><h4>Abre los dos programas que quieras usar</h4><p>Por ejemplo, Word y Excel, o Chrome y Word.</p></div>
+                <div class="step"><h4>Arrastra una ventana al borde izquierdo</h4><p>Haz clic en la barra superior, mantén presionado y arrastra hasta que el cursor toque el borde izquierdo.</p></div>
+                <div class="step"><h4>Suelta el mouse</h4><p>La ventana se ajusta automáticamente a la mitad izquierda.</p></div>
+                <div class="step"><h4>Elige la segunda ventana</h4><p>Windows te mostrará las otras ventanas. Haz clic en la que quieras.</p></div>
+            </div>
+
+            <div class="split-ejemplo">
+                <div>📄 Word<br><span style="font-size:0.75em;">Oficio</span></div>
+                <div>📊 Excel<br><span style="font-size:0.75em;">Reporte</span></div>
+            </div>
+
+            <div class="ejercicio">
+                <h4>Ejercicio Práctico: Abre y minimiza una ventana</h4>
+                <ol>
+                    <li>Haz clic en el ícono de <strong>Word</strong> o <strong>Chrome</strong> en tu escritorio.</li>
+                    <li>Identifica los tres botones: ➖ (minimizar), ⬜ (maximizar), ✖ (cerrar).</li>
+                    <li>Haz clic en <strong>➖</strong>. La ventana desaparece pero el programa sigue abierto.</li>
+                    <li>Haz clic en el ícono en la <strong>barra de tareas</strong> para que vuelva.</li>
+                    <li>Haz clic en <strong>⬜</strong> para maximizar. Vuelve a hacer clic para restaurar.</li>
+                </ol>
+                <span class="ejercicio-accion">✓ Lo practiqué</span>
+            </div>
+
+            <div class="ejercicio">
+                <h4>Ejercicio Práctico: Pantalla dividida</h4>
+                <ol>
+                    <li>Abre <strong>Word</strong> y también <strong>Chrome</strong> o <strong>Excel</strong>.</li>
+                    <li>Arrastra Word al <strong>borde izquierdo</strong> hasta ver un contorno y suelta.</li>
+                    <li>Arrastra la otra ventana al <strong>borde derecho</strong>.</li>
+                    <li>¡Tienes dos programas visibles al mismo tiempo!</li>
+                </ol>
+                <span class="ejercicio-accion">✓ Lo logré</span>
+            </div>
+            <div style="text-align:center;margin-top:20px;">
+                <a href="#so" class="btn-accion btn-blanco btn-chico">← Anterior</a>
+                <a href="#encender" class="btn-accion btn-verde btn-chico">Siguiente: Encender/Apagar →</a>
+            </div>
+        </section>
+
+        <!-- 8-22 restantes (mismo patrón de botones Anterior/Siguiente) -->
+        <section id="encender" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🔌 Encender y apagar correctamente</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#ventanas" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#mouse" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <h3>🔛 Para encender</h3>
+            <div class="steps">
+                <div class="step"><h4>Verifica conexiones</h4><p>Cables de corriente, monitor y red.</p></div>
+                <div class="step"><h4>Enciende el monitor</h4><p>Si es de escritorio.</p></div>
+                <div class="step"><h4>Presiona el botón ⏻</h4><p>En la torre o laptop.</p></div>
+                <div class="step"><h4>Espera que cargue Windows</h4><p>Ingresa tu contraseña.</p></div>
+            </div>
+            <h3>🔴 Para apagar</h3>
+            <div class="steps">
+                <div class="step"><h4>Guarda todo tu trabajo</h4></div>
+                <div class="step"><h4>Inicio > ⏻ > Apagar</h4></div>
+                <div class="step"><h4>Espera que se apague completamente</h4></div>
+            </div>
+            <div class="warning"><h4>⚠️ Importante</h4><ul><li>No desconectes la corriente mientras está encendida.</li><li>No apagues con la regleta sin antes hacerlo desde Windows.</li></ul></div>
+            <div style="text-align:center;margin-top:20px;"><a href="#ventanas" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#mouse" class="btn-accion btn-verde btn-chico">Siguiente: Mouse →</a></div>
+        </section>
+
+        <section id="mouse" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🖱️ Cómo usar el Mouse</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#encender" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#teclado" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="cards-grid">
+                <div class="card"><span class="icono">👆</span><h4>Botón izquierdo</h4><p>Seleccionar, abrir, hacer clic.</p></div>
+                <div class="card"><span class="icono">👇</span><h4>Botón derecho</h4><p>Menú contextual con opciones.</p></div>
+                <div class="card"><span class="icono">🔄</span><h4>Rueda (scroll)</h4><p>Desplazarse arriba/abajo.</p></div>
+            </div>
+            <div class="ejercicio"><h4>Ejercicio Práctico</h4><ol><li>Haz <strong>clic izquierdo</strong> en la Papelera.</li><li>Haz <strong>doble clic</strong> para abrirla.</li><li>Haz <strong>clic derecho</strong> en el escritorio.</li><li>Usa la <strong>rueda</strong> para subir y bajar en esta página.</li></ol><span class="ejercicio-accion">✓ Lo practiqué</span></div>
+            <div style="text-align:center;margin-top:20px;"><a href="#encender" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#teclado" class="btn-accion btn-verde btn-chico">Siguiente: Teclado →</a></div>
+        </section>
+
+        <section id="teclado" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>⌨️ Cómo usar el Teclado</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#mouse" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#atajos" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="cards-grid">
+                <div class="card"><span class="icono">🔤</span><h4>Letras y números</h4><p>Para escribir textos, correos, contraseñas.</p></div>
+                <div class="card"><span class="icono">⬆️</span><h4>Teclas especiales</h4><p>Ctrl, Alt, Shift, Enter, Espacio.</p></div>
+                <div class="card"><span class="icono">⬆️⬇️</span><h4>Flechas</h4><p>Para moverte por documentos.</p></div>
+                <div class="card"><span class="icono">🎯</span><h4>F1-F12</h4><p>F2=Renombrar, F5=Actualizar, F11=Pantalla completa.</p></div>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#mouse" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#atajos" class="btn-accion btn-verde btn-chico">Siguiente: Atajos →</a></div>
+        </section>
+
+        <section id="atajos" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🔥 Atajos de teclado esenciales</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#teclado" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#escritorio" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="shortcuts-grid">
+                <div class="shortcut-item"><span class="tecla">Ctrl+C</span><span>Copiar</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+V</span><span>Pegar</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+X</span><span>Cortar</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+Z</span><span>Deshacer</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+Y</span><span>Rehacer</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+A</span><span>Seleccionar todo</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+S</span><span>Guardar</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+P</span><span>Imprimir</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+F</span><span>Buscar</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+B</span><span>Negritas</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+I</span><span>Cursiva</span></div>
+                <div class="shortcut-item"><span class="tecla">Alt+Tab</span><span>Cambiar ventana</span></div>
+                <div class="shortcut-item"><span class="tecla">Win+D</span><span>Escritorio</span></div>
+                <div class="shortcut-item"><span class="tecla">Win+E</span><span>Explorador</span></div>
+                <div class="shortcut-item"><span class="tecla">Win+L</span><span>Bloquear PC</span></div>
+                <div class="shortcut-item"><span class="tecla">Win+.</span><span>Emojis 😊</span></div>
+                <div class="shortcut-item"><span class="tecla">F2</span><span>Renombrar</span></div>
+                <div class="shortcut-item"><span class="tecla">F5</span><span>Actualizar</span></div>
+                <div class="shortcut-item"><span class="tecla">F11</span><span>Pantalla completa</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+Shift+Esc</span><span>Administrador tareas</span></div>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#teclado" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#escritorio" class="btn-accion btn-verde btn-chico">Siguiente: Escritorio →</a></div>
+        </section>
+
+        <section id="escritorio" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🖼️ El Escritorio de Windows</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#atajos" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#archivos" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Elemento</th><th>Descripción</th></tr></thead>
+                    <tbody>
+                        <tr><td>🪟 Botón Inicio</td><td>Buscar programas y apagar.</td></tr>
+                        <tr><td>🔍 Buscador</td><td>Buscar archivos y programas.</td></tr>
+                        <tr><td>📌 Barra de tareas</td><td>Programas abiertos.</td></tr>
+                        <tr><td>🕑 Bandeja</td><td>Hora, volumen, internet.</td></tr>
+                        <tr><td>🗑️ Papelera</td><td>Archivos eliminados (recuperables).</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#atajos" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#archivos" class="btn-accion btn-verde btn-chico">Siguiente: Archivos →</a></div>
+        </section>
+
+        <section id="archivos" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>📂 Archivos</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#escritorio" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#carpetas" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <h3>Tipos comunes en la oficina</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Tipo</th><th>Extensión</th><th>Programa</th></tr></thead>
+                    <tbody>
+                        <tr><td>📄 Documento Word</td><td>.docx</td><td>Word</td></tr>
+                        <tr><td>📊 Hoja Excel</td><td>.xlsx</td><td>Excel</td></tr>
+                        <tr><td>📄 PDF</td><td>.pdf</td><td>Adobe / Navegador</td></tr>
+                        <tr><td>🖼️ Imagen</td><td>.jpg, .png</td><td>Visor de fotos</td></tr>
+                        <tr><td>📦 Comprimido</td><td>.zip</td><td>7-Zip / WinRAR</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="shortcuts-grid">
+                <div class="shortcut-item"><span class="tecla">Ctrl+C</span><span>Copiar</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+X</span><span>Cortar</span></div>
+                <div class="shortcut-item"><span class="tecla">Ctrl+V</span><span>Pegar</span></div>
+                <div class="shortcut-item"><span class="tecla">F2</span><span>Renombrar</span></div>
+                <div class="shortcut-item"><span class="tecla">Supr</span><span>Eliminar</span></div>
+                <div class="shortcut-item"><span class="tecla">Win+E</span><span>Explorador</span></div>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#escritorio" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#carpetas" class="btn-accion btn-verde btn-chico">Siguiente: Carpetas →</a></div>
+        </section>
+
+        <section id="carpetas" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>📁 Carpetas y organización</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#archivos" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#programas" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="steps">
+                <div class="step"><h4>Crea carpetas por tema</h4><p>"Oficios 2026", "Reportes SIS", "Formatos".</p></div>
+                <div class="step"><h4>Subcarpetas</h4><p>"Oficios 2026" > "Enero", "Febrero"...</p></div>
+                <div class="step"><h4>Nombres claros</h4><p>"Reporte_EPI_2026.xlsx" no "datos1".</p></div>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#archivos" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#programas" class="btn-accion btn-verde btn-chico">Siguiente: Programas →</a></div>
+        </section>
+
+        <section id="programas" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>📱 Programas que usamos</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#carpetas" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#office" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="cards-grid">
+                <div class="card"><span class="icono">📝</span><h4>Word</h4><p>Redactar oficios e informes.</p></div>
+                <div class="card"><span class="icono">📊</span><h4>Excel</h4><p>Captura de datos, estadísticas.</p></div>
+                <div class="card"><span class="icono">🌐</span><h4>Chrome</h4><p>Navegar en plataformas de salud.</p></div>
+                <div class="card"><span class="icono">📧</span><h4>Correo</h4><p>Comunicación oficial.</p></div>
+                <div class="card"><span class="icono">🛡️</span><h4>Defender</h4><p>Antivirus de Windows.</p></div>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#carpetas" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#office" class="btn-accion btn-verde btn-chico">Siguiente: Office →</a></div>
+        </section>
+
+        <section id="office" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>📋 Microsoft Office</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#programas" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#internet" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <h3>📝 Word</h3>
+            <ul><li><strong>Guardar:</strong> Ctrl+S.</li><li><strong>Formato:</strong> Negrita Ctrl+B, Cursiva Ctrl+I, Subrayado Ctrl+U.</li><li><strong>Imprimir:</strong> Ctrl+P.</li></ul>
+            <h3>📊 Excel</h3>
+            <ul><li><strong>Celdas:</strong> A1, B3 (letra + número).</li><li><strong>Fórmulas:</strong> =SUMA(A1:A10), =PROMEDIO(B1:B5).</li></ul>
+            <div style="text-align:center;margin-top:20px;"><a href="#programas" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#internet" class="btn-accion btn-verde btn-chico">Siguiente: Internet →</a></div>
+        </section>
+
+        <section id="internet" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🌐 Cómo usar Internet</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#office" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#correo" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="steps">
+                <div class="step"><h4>Abre Chrome o Edge</h4></div>
+                <div class="step"><h4>Escribe www.google.com</h4></div>
+                <div class="step"><h4>Escribe lo que buscas y Enter</h4></div>
+                <div class="step"><h4>Haz clic en un resultado</h4></div>
+            </div>
+            <div class="warning"><h4>🔒 Seguridad</h4><ul><li>No compartas contraseñas.</li><li>Verifica el candado 🔒.</li></ul></div>
+            <div style="text-align:center;margin-top:20px;"><a href="#office" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#correo" class="btn-accion btn-verde btn-chico">Siguiente: Correo →</a></div>
+        </section>
+
+        <section id="correo" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>📧 Correo Electrónico</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#internet" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#navegacion" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="steps">
+                <div class="step"><h4>Ve a www.gmail.com</h4></div>
+                <div class="step"><h4>Ingresa con tu cuenta</h4></div>
+                <div class="step"><h4>Redacta y adjunta 📎</h4></div>
+                <div class="step"><h4>Envía</h4></div>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#internet" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#navegacion" class="btn-accion btn-verde btn-chico">Siguiente: Navegación →</a></div>
+        </section>
+
+        <section id="navegacion" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🧭 Navegación en el navegador</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#correo" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#seguridad" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Acción</th><th>Atajo</th></tr></thead>
+                    <tbody>
+                        <tr><td>Nueva pestaña</td><td>Ctrl+T</td></tr>
+                        <tr><td>Cerrar pestaña</td><td>Ctrl+W</td></tr>
+                        <tr><td>Actualizar</td><td>F5</td></tr>
+                        <tr><td>Pantalla completa</td><td>F11</td></tr>
+                        <tr><td>Buscar en página</td><td>Ctrl+F</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#correo" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#seguridad" class="btn-accion btn-verde btn-chico">Siguiente: Seguridad →</a></div>
+        </section>
+
+        <section id="seguridad" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🔒 Seguridad de la información</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#navegacion" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#mantenimiento" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="cards-grid">
+                <div class="card"><span class="icono">🛡️</span><h4>Antivirus activo</h4><p>Windows Defender siempre encendido.</p></div>
+                <div class="card"><span class="icono">🔐</span><h4>Contraseñas seguras</h4><p>Mayúsculas, minúsculas, números, símbolos.</p></div>
+                <div class="card"><span class="icono">🔄</span><h4>Actualizaciones</h4><p>Mantén Windows al día.</p></div>
+                <div class="card"><span class="icono">👀</span><h4>Cuidado</h4><p>No descargues de sitios raros.</p></div>
+            </div>
+            <h3>Consejos diarios</h3>
+            <ul><li><strong>Bloquea tu PC</strong> al salir (Win+L).</li><li><strong>No compartas contraseñas.</strong></li><li><strong>Cierra sesión</strong> al terminar tu turno.</li></ul>
+            <div style="text-align:center;margin-top:20px;"><a href="#navegacion" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#mantenimiento" class="btn-accion btn-verde btn-chico">Siguiente: Mantenimiento →</a></div>
+        </section>
+
+        <section id="mantenimiento" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🧹 Mantenimiento básico</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#seguridad" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#problemas" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Tarea</th><th>Cada cuánto</th></tr></thead>
+                    <tbody>
+                        <tr><td>Actualizar Windows</td><td>Automático</td></tr>
+                        <tr><td>Liberar espacio</td><td>Mensual</td></tr>
+                        <tr><td>Vaciar papelera</td><td>Semanal</td></tr>
+                        <tr><td>Análisis antivirus</td><td>Semanal</td></tr>
+                        <tr><td>Limpiar polvo</td><td>6 meses</td></tr>
+                        <tr><td>Copia de seguridad</td><td>Mensual</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align:center;margin-top:20px;"><a href="#seguridad" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#problemas" class="btn-accion btn-verde btn-chico">Siguiente: Problemas →</a></div>
+        </section>
+
+        <section id="problemas" class="section">
+            <span class="modulo-badge modulo-badge-software">SOFTWARE</span>
+            <h2>🔧 Problemas comunes</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#mantenimiento" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#glosario" class="btn-accion btn-verde btn-chico" style="font-size:0.8em;">Siguiente →</a></div>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Problema</th><th>Solución</th></tr></thead>
+                    <tbody>
+                        <tr><td>🐢 Lenta</td><td>Cierra programas. Libera espacio.</td></tr>
+                        <tr><td>🌐 Sin internet</td><td>Reinicia el router.</td></tr>
+                        <tr><td>🔊 Sin sonido</td><td>Revisa volumen y bocinas.</td></tr>
+                        <tr><td>❄️ Congelada</td><td>Ctrl+Alt+Supr > Finalizar tarea.</td></tr>
+                        <tr><td>🖨️ No imprime</td><td>Verifica papel y tinta.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tips"><h4>💡 ¿Problema raro? ¡Reinicia!</h4><p>Soluciona el 90% de los problemas.</p></div>
+            <div style="text-align:center;margin-top:20px;"><a href="#mantenimiento" class="btn-accion btn-blanco btn-chico">← Anterior</a><a href="#glosario" class="btn-accion btn-verde btn-chico">Siguiente: Glosario →</a></div>
+        </section>
+
+        <section id="glosario" class="section">
+            <h2>📖 Glosario completo</h2>
+            <div style="text-align:right;margin-bottom:10px;"><a href="#problemas" class="btn-accion btn-blanco btn-chico" style="font-size:0.8em;">← Anterior</a><a href="#inicio" class="btn-accion btn-hardware btn-chico" style="font-size:0.8em;">⬆ Inicio</a></div>
+            <div class="glossary-item"><strong>Archivo</strong><span>Documento digital (oficio, foto, video).</span></div>
+            <div class="glossary-item"><strong>Backup</strong><span>Copia de seguridad.</span></div>
+            <div class="glossary-item"><strong>Carpeta</strong><span>Lugar para organizar archivos.</span></div>
+            <div class="glossary-item"><strong>Cursor</strong><span>Flecha del mouse.</span></div>
+            <div class="glossary-item"><strong>Descargar</strong><span>Bajar archivo de internet.</span></div>
+            <div class="glossary-item"><strong>Disco Duro</strong><span>Almacena tus archivos.</span></div>
+            <div class="glossary-item"><strong>Firewall</strong><span>Barrera de seguridad.</span></div>
+            <div class="glossary-item"><strong>Hardware</strong><span>Partes físicas de la PC.</span></div>
+            <div class="glossary-item"><strong>Navegador</strong><span>Chrome, Edge, Firefox.</span></div>
+            <div class="glossary-item"><strong>Nube</strong><span>Archivos en internet.</span></div>
+            <div class="glossary-item"><strong>Papelera</strong><span>Archivos eliminados.</span></div>
+            <div class="glossary-item"><strong>PDF</strong><span>Documento portátil.</span></div>
+            <div class="glossary-item"><strong>RAM</strong><span>Memoria temporal.</span></div>
+            <div class="glossary-item"><strong>Red</strong><span>Conexión entre computadoras.</span></div>
+            <div class="glossary-item"><strong>SIS</strong><span>Sistema de Información en Salud.</span></div>
+            <div class="glossary-item"><strong>Software</strong><span>Programas (Word, Excel).</span></div>
+            <div class="glossary-item"><strong>Spam</strong><span>Correos basura.</span></div>
+            <div class="glossary-item"><strong>SSD</strong><span>Disco duro rápido.</span></div>
+            <div class="glossary-item"><strong>USB</strong><span>Puerto para conectar dispositivos.</span></div>
+            <div class="glossary-item"><strong>Virus</strong><span>Programa malicioso.</span></div>
+            <div class="glossary-item"><strong>Wi-Fi</strong><span>Internet sin cables.</span></div>
+            <div style="text-align:center;margin-top:20px;">
+                <a href="#problemas" class="btn-accion btn-blanco btn-chico">← Anterior</a>
+                <a href="#inicio" class="btn-accion btn-hardware btn-chico">⬆ Volver al inicio</a>
+                <a href="#modulo-hardware" class="btn-accion btn-hardware btn-chico">🔧 Repasar Hardware</a>
+                <a href="#modulo-software" class="btn-accion btn-software btn-chico">💿 Repasar Software</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>🏥 Jurisdicción Sanitaria N°V — Ciudad Valles, S.L.P.</p>
+        <p>💖 Manual de Computación para el personal — Capacitación continua</p>
+        <p>2 Módulos: Hardware y Software — Botones de navegación incluidos 📚</p>
+        <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#modulo-hardware">Hardware</a>
+            <a href="#modulo-software">Software</a>
+            <a href="#teclado">Teclado</a>
+            <a href="#seguridad">Seguridad</a>
+            <a href="#glosario">Glosario</a>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">⬆</button>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
